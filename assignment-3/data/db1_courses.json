@@ -1,0 +1,62 @@
+[
+  {
+    "id": "course_1",
+    "name": "Artificial Intelligence",
+    "professor_id": "prof_3",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_2",
+    "name": "Networking",
+    "professor_id": "prof_1",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_3",
+    "name": "Networking",
+    "professor_id": "prof_3",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_4",
+    "name": "Networking",
+    "professor_id": "prof_4",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_5",
+    "name": "Cloud Computing",
+    "professor_id": "prof_4",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_1001",
+    "name": "DB1 Artificial Intelligence",
+    "professor_id": "prof_1003",
+    "department_id": "dept_1001"
+  },
+  {
+    "id": "course_1002",
+    "name": "DB1 Cloud Computing",
+    "professor_id": "prof_2",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_1003",
+    "name": "DB1 Mobile Development",
+    "professor_id": "prof_3",
+    "department_id": "dept_1001"
+  },
+  {
+    "id": "course_1004",
+    "name": "DB1 Networking",
+    "professor_id": "prof_1002",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_1005",
+    "name": "DB1 Database Systems",
+    "professor_id": "prof_1001",
+    "department_id": "dept_5"
+  }
+]

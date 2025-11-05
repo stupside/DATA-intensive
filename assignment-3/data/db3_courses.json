@@ -1,0 +1,62 @@
+[
+  {
+    "id": "course_1",
+    "name": "Artificial Intelligence",
+    "professor_id": "prof_3",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_2",
+    "name": "Networking",
+    "professor_id": "prof_1",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_3",
+    "name": "Networking",
+    "professor_id": "prof_3",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_4",
+    "name": "Networking",
+    "professor_id": "prof_4",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_5",
+    "name": "Cloud Computing",
+    "professor_id": "prof_4",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_3001",
+    "name": "DB3 Algorithms",
+    "professor_id": "prof_3001",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_3002",
+    "name": "DB3 Algorithms",
+    "professor_id": "prof_3005",
+    "department_id": "dept_4"
+  },
+  {
+    "id": "course_3003",
+    "name": "DB3 Security",
+    "professor_id": "prof_3",
+    "department_id": "dept_3001"
+  },
+  {
+    "id": "course_3004",
+    "name": "DB3 Algorithms",
+    "professor_id": "prof_3002",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_3005",
+    "name": "DB3 Algorithms",
+    "professor_id": "prof_3001",
+    "department_id": "dept_2"
+  }
+]

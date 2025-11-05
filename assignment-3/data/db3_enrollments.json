@@ -1,0 +1,52 @@
+[
+  {
+    "id": "enroll_1",
+    "course_id": "course_1",
+    "student_id": "stud_2"
+  },
+  {
+    "id": "enroll_2",
+    "course_id": "course_2",
+    "student_id": "stud_4"
+  },
+  {
+    "id": "enroll_3",
+    "course_id": "course_3",
+    "student_id": "stud_5"
+  },
+  {
+    "id": "enroll_4",
+    "course_id": "course_4",
+    "student_id": "stud_5"
+  },
+  {
+    "id": "enroll_5",
+    "course_id": "course_5",
+    "student_id": "stud_5"
+  },
+  {
+    "id": "enroll_3001",
+    "course_id": "course_3001",
+    "student_id": "stud_3005"
+  },
+  {
+    "id": "enroll_3002",
+    "course_id": "course_3002",
+    "student_id": "stud_3004"
+  },
+  {
+    "id": "enroll_3003",
+    "course_id": "course_3003",
+    "student_id": "stud_3001"
+  },
+  {
+    "id": "enroll_3004",
+    "course_id": "course_3004",
+    "student_id": "stud_5"
+  },
+  {
+    "id": "enroll_3005",
+    "course_id": "course_3005",
+    "student_id": "stud_5"
+  }
+]

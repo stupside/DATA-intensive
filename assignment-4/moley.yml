@@ -1,0 +1,13 @@
+ingress:
+    apps:
+        - expose:
+            subdomain: api
+          target:
+            hostname: localhost
+            port: 8443
+            protocol: http
+    mode: subdomain
+    zone: xonery.dev
+tunnel:
+    id: c5debc71-8705-4823-93e1-b8e48ab2a6dc
+    persistent: false

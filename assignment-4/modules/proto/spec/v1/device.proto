@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package spec.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/stupside/DATA-intensive/assignment-4/modules/proto/gen/spec/v1;v1";
+
+message OnboardRequest {
+  bytes csr = 1;
+}
+message OnboardResponse {
+  bytes certificate = 1;
+}
+
+service DeviceService {
+  // Onboard is used by the device to onboard itself to the system
+  rpc Onboard(OnboardRequest) returns (OnboardResponse) {
+    option (google.api.http) = {post: "/api/v1/device/onboard"};
+  }
+}

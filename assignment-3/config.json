@@ -1,0 +1,21 @@
+{
+  "generation": {
+    "output_dir": "./data",
+    "replicated_data_ratio": 0.5,
+    "num_entities_per_database": 10
+  },
+  "databases": [
+    {
+      "name": "university_db1",
+      "connection_string": "mongodb://admin:password123@localhost:27017/?authSource=admin"
+    },
+    {
+      "name": "university_db2",
+      "connection_string": "mongodb://admin:password123@localhost:27018/?authSource=admin"
+    },
+    {
+      "name": "university_db3",
+      "connection_string": "mongodb://admin:password123@localhost:27019/?authSource=admin"
+    }
+  ]
+}

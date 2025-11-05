@@ -1,0 +1,72 @@
+[
+  {
+    "id": "stud_1",
+    "first_name": "Michael",
+    "last_name": "Lopez",
+    "email": "repl.student1@example.com",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "stud_2",
+    "first_name": "James",
+    "last_name": "Garcia",
+    "email": "repl.student2@example.com",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "stud_3",
+    "first_name": "Michael",
+    "last_name": "Martinez",
+    "email": "repl.student3@example.com",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "stud_4",
+    "first_name": "Lisa",
+    "last_name": "Williams",
+    "email": "repl.student4@example.com",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "stud_5",
+    "first_name": "Emma",
+    "last_name": "Jones",
+    "email": "repl.student5@example.com",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "stud_3001",
+    "first_name": "James",
+    "last_name": "Williams",
+    "email": "db3.student3001@example.com",
+    "department_id": "dept_3001"
+  },
+  {
+    "id": "stud_3002",
+    "first_name": "James",
+    "last_name": "Brown",
+    "email": "db3.student3002@example.com",
+    "department_id": "dept_5"
+  },
+  {
+    "id": "stud_3003",
+    "first_name": "James",
+    "last_name": "Miller",
+    "email": "db3.student3003@example.com",
+    "department_id": "dept_3003"
+  },
+  {
+    "id": "stud_3004",
+    "first_name": "Maria",
+    "last_name": "Jones",
+    "email": "db3.student3004@example.com",
+    "department_id": "dept_4"
+  },
+  {
+    "id": "stud_3005",
+    "first_name": "Emma",
+    "last_name": "Garcia",
+    "email": "db3.student3005@example.com",
+    "department_id": "dept_1"
+  }
+]

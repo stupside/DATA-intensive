@@ -1,0 +1,62 @@
+[
+  {
+    "id": "course_1",
+    "name": "Artificial Intelligence",
+    "professor_id": "prof_3",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_2",
+    "name": "Networking",
+    "professor_id": "prof_1",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_3",
+    "name": "Networking",
+    "professor_id": "prof_3",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_4",
+    "name": "Networking",
+    "professor_id": "prof_4",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_5",
+    "name": "Cloud Computing",
+    "professor_id": "prof_4",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_2001",
+    "name": "DB2 Web Development",
+    "professor_id": "prof_2005",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_2002",
+    "name": "DB2 Database Systems",
+    "professor_id": "prof_5",
+    "department_id": "dept_5"
+  },
+  {
+    "id": "course_2003",
+    "name": "DB2 Algorithms",
+    "professor_id": "prof_2004",
+    "department_id": "dept_2"
+  },
+  {
+    "id": "course_2004",
+    "name": "DB2 Machine Learning",
+    "professor_id": "prof_3",
+    "department_id": "dept_1"
+  },
+  {
+    "id": "course_2005",
+    "name": "DB2 Networking",
+    "professor_id": "prof_2",
+    "department_id": "dept_5"
+  }
+]

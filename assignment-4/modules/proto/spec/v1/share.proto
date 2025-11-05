@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package spec.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/stupside/DATA-intensive/assignment-4/modules/proto/gen/spec/v1;v1";
+
+message DetailRequest {
+  uint64 id = 1;
+}
+message DetailResponse {
+  message Content {
+    uint64 size = 1;
+    string path = 2;
+  }
+  repeated Content contents = 1;
+}
+
+message CreateRequest {
+  message Content {
+    uint64 size = 1;
+    string path = 2;
+  }
+  repeated Content contents = 1;
+}
+message CreateResponse {
+  string id = 1;
+  string key = 2;
+}
+
+service ShareService {
+  // Create a new share will create multiple offers
+  rpc Create(CreateRequest) returns (CreateResponse) {
+    option (google.api.http) = {post: "/api/v1/share/create"};
+  }
+  // Detail will provide the detail information of a share
+  rpc Detail(DetailRequest) returns (DetailResponse) {
+    option (google.api.http) = {post: "/api/v1/share/detail"};
+  }
+}

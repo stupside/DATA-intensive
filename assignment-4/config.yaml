@@ -1,0 +1,34 @@
+server:
+  port: 8443
+  http:
+    enable_http1: true
+    unencrypted_http2: false
+
+tls:
+  server:
+    cert_path: "./.certs/server.crt"
+    key_path: "./.certs/server.key"
+  ca:
+    cert_path: "./.certs/ca.crt"
+    key_path: "./.certs/ca.key"
+
+security:
+  cors:
+    allowed_origins:
+      - "*"
+
+database:
+  mongodb:
+    uri: "mongodb://localhost:27017"
+    database: "assignment4"
+  postgresql:
+    dsn: "host=localhost user=admin password=admin dbname=assignment4 port=5432 sslmode=disable TimeZone=UTC"
+    auto_migrate: true
+
+features:
+  relay:
+    chunk_size: 1048576  # 1MB
+  onboarding:
+    certificate_validity: 8760h  # 1 year
+  grpc:
+    enable_reflection: true

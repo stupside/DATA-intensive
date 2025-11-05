@@ -1,0 +1,62 @@
+[
+  {
+    "id": "prof_1",
+    "email": "repl.prof1@example.com",
+    "last_name": "Brown",
+    "first_name": "David"
+  },
+  {
+    "id": "prof_2",
+    "email": "repl.prof2@example.com",
+    "last_name": "Davis",
+    "first_name": "Sarah"
+  },
+  {
+    "id": "prof_3",
+    "email": "repl.prof3@example.com",
+    "last_name": "Williams",
+    "first_name": "John"
+  },
+  {
+    "id": "prof_4",
+    "email": "repl.prof4@example.com",
+    "last_name": "Martinez",
+    "first_name": "Emma"
+  },
+  {
+    "id": "prof_5",
+    "email": "repl.prof5@example.com",
+    "last_name": "Smith",
+    "first_name": "Emma"
+  },
+  {
+    "id": "prof_2001",
+    "email": "db2.prof2001@example.com",
+    "last_name": "Lopez",
+    "first_name": "Sarah"
+  },
+  {
+    "id": "prof_2002",
+    "email": "db2.prof2002@example.com",
+    "last_name": "Brown",
+    "first_name": "Jane"
+  },
+  {
+    "id": "prof_2003",
+    "email": "db2.prof2003@example.com",
+    "last_name": "Jones",
+    "first_name": "Lisa"
+  },
+  {
+    "id": "prof_2004",
+    "email": "db2.prof2004@example.com",
+    "last_name": "Williams",
+    "first_name": "Robert"
+  },
+  {
+    "id": "prof_2005",
+    "email": "db2.prof2005@example.com",
+    "last_name": "Jones",
+    "first_name": "James"
+  }
+]

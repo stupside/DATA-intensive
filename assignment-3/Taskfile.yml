@@ -1,0 +1,22 @@
+version: '3'
+
+vars:
+  CMD_PATH: cmd
+  BUILD_DIR: .
+  BINARY_NAME: db
+
+tasks:
+  build:
+    desc: Build the dbctl binary
+    cmds:
+      - go build -o {{.BUILD_DIR}}/{{.BINARY_NAME}} {{.CMD_PATH}}/main.go
+    sources:
+      - 'internal/**/*.go'
+      - '{{.CMD_PATH}}/**/*.go'
+    generates:
+      - '{{.BUILD_DIR}}/{{.BINARY_NAME}}'
+
+  default:
+    desc: Default task (build)
+    cmds:
+      - task: build

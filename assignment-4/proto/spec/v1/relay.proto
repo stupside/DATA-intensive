@@ -1,0 +1,141 @@
+syntax = "proto3";
+
+package spec.v1;
+
+import "buf/validate/validate.proto";
+import "google/api/annotations.proto";
+import "google/type/datetime.proto";
+
+option go_package = "github.com/stupside/DATA-intensive/assignment-4/proto/gen/spec/v1;v1";
+
+// StreamRequest is sent by the producer (client pushing files)
+message StreamRequest {
+  oneof payload {
+    StreamInit init = 1; // Initialize stream session
+    StreamChunk chunk = 2; // File chunk data
+  }
+}
+
+// StreamInit initializes the stream session
+message StreamInit {
+  // share_id is the numeric ID of the share; servers should look up share by ID and
+  // then verify that the provided secret matches the stored secret. This helps
+  // efficient lookups and avoids brute-force key scans.
+  uint64 share_id = 1 [(buf.validate.field).uint64.gt = 0];
+  // share_secret is the secret token clients must provide to join a stream
+  string share_secret = 2 [(buf.validate.field).string.min_len = 1];
+}
+
+// StreamChunk contains file chunk data from producer
+message StreamChunk {
+  bytes data = 1;
+  string path = 2 [(buf.validate.field).string.min_len = 1];
+  uint64 offset = 3; // Byte offset in the file
+  uint64 length = 4 [(buf.validate.field).uint64.gt = 0]; // Number of bytes in this chunk
+}
+
+// StreamResponse is sent by the server to the producer
+message StreamResponse {
+  oneof payload {
+    RequestChunk request = 1; // Request next chunk
+    StreamComplete complete = 2; // Indicate all chunks received
+  }
+}
+
+// RequestChunk asks producer to send next chunk
+message RequestChunk {
+  string path = 1 [(buf.validate.field).string.min_len = 1];
+  uint64 offset = 2; // Byte offset in the file
+  uint64 length = 3 [(buf.validate.field).uint64.gt = 0]; // Number of bytes to request
+}
+
+// StreamComplete indicates all chunks have been sent
+message StreamComplete {}
+
+// ConsumeRequest is sent by the consumer (client pulling files)
+message ConsumeRequest {
+  oneof payload {
+    ConsumeInit init = 1;
+    ConsumeNext next = 2;
+  }
+}
+
+// ConsumeInit starts consumption
+message ConsumeInit {
+  uint64 share_id = 1 [(buf.validate.field).uint64.gt = 0]; // share ID to consume from
+  string share_secret = 2 [(buf.validate.field).string.min_len = 1]; // share secret for authentication
+}
+
+// ConsumeNext requests a specific chunk from the producer
+message ConsumeNext {
+  string path = 1 [(buf.validate.field).string.min_len = 1]; // File path to request
+  uint64 offset = 2; // Byte offset in the file
+  uint64 length = 3 [(buf.validate.field).uint64.gt = 0]; // Number of bytes to request
+}
+
+// ConsumeResponse is sent by server to consumer
+message ConsumeResponse {
+  oneof payload {
+    ConsumeChunk chunk = 1;
+    ConsumeComplete complete = 2;
+    ConsumeProgress progress = 3;
+  }
+}
+
+// ConsumeChunk forwards a chunk to the consumer
+message ConsumeChunk {
+  bytes data = 1 [(buf.validate.field).bytes.min_len = 1];
+  string path = 2 [(buf.validate.field).string.min_len = 1];
+  uint64 offset = 3;
+  uint64 length = 4 [(buf.validate.field).uint64.gt = 0]; // Number of bytes in this chunk
+}
+
+// ConsumeComplete indicates all chunks delivered
+message ConsumeComplete {}
+
+// ConsumeProgress provides real-time progress updates during file transfer
+message ConsumeProgress {
+  string file_path = 1;
+  uint64 total_bytes = 2;
+  double progress_percent = 3;
+  uint64 bytes_transferred = 4;
+}
+
+// RelaySummary provides statistics about the relay
+message SummaryRequest {
+  uint64 share_id = 1 [(buf.validate.field).uint64.gt = 0];
+  string share_secret = 2 [(buf.validate.field).string.min_len = 1];
+}
+
+// SummaryResponse contains relay statistics
+message SummaryResponse {
+  message FileSummary {
+    string path = 1;
+    uint64 bytes_relayed = 2;
+    uint64 bytes_remaining = 3;
+    double progress_percent = 4;
+  }
+
+  message SessionInfo {
+    google.type.DateTime created_at = 1;
+  }
+
+  SessionInfo session = 1;
+  double overall_progress = 2;
+  repeated FileSummary files = 3;
+}
+
+service RelayService {
+  // Stream is used by the producer to push data chunks (bidirectional with backpressure)
+  rpc Stream(stream StreamRequest) returns (stream StreamResponse) {
+    option (google.api.http) = {post: "/api/v1/relay/stream"};
+  }
+  // Summary provides relay statistics
+  rpc Summary(SummaryRequest) returns (SummaryResponse) {
+    option (google.api.http) = {get: "/api/v1/relay/summary"};
+  }
+  // Consume is used by the consumer to pull data chunks (bidirectional with backpressure)
+  rpc Consume(stream ConsumeRequest) returns (stream ConsumeResponse) {
+    option (google.api.http) = {post: "/api/v1/relay/consume"};
+  }
+}

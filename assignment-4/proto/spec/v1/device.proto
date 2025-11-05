@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package spec.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/stupside/DATA-intensive/assignment-4/proto/gen/spec/v1;v1";
+
+message ConnectionsRequest {
+  // Empty - device identified from mTLS certificate
+}
+
+message ConnectionsResponse {
+  repeated ConnectionInfo connections = 1;
+}
+
+message ConnectionInfo {
+  uint64 id = 1;
+  bool success = 2;
+  string ip_address = 3;
+  google.protobuf.Timestamp created_at = 4;
+}
+
+// DeviceService handles device information queries
+service DeviceService {
+  // Connections returns connection history for authenticated device
+  rpc Connections(ConnectionsRequest) returns (ConnectionsResponse) {
+    option (google.api.http) = {get: "/api/v1/device/connections"};
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "dept_1",
+    "name": "Chemistry"
+  },
+  {
+    "id": "dept_2",
+    "name": "Business"
+  },
+  {
+    "id": "dept_3",
+    "name": "Business"
+  },
+  {
+    "id": "dept_4",
+    "name": "Chemistry"
+  },
+  {
+    "id": "dept_5",
+    "name": "Physics"
+  },
+  {
+    "id": "dept_3001",
+    "name": "DB3 Business"
+  },
+  {
+    "id": "dept_3002",
+    "name": "DB3 Biology"
+  },
+  {
+    "id": "dept_3003",
+    "name": "DB3 Medicine"
+  },
+  {
+    "id": "dept_3004",
+    "name": "DB3 Engineering"
+  },
+  {
+    "id": "dept_3005",
+    "name": "DB3 Business"
+  }
+]

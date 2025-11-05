@@ -1,0 +1,5 @@
+server_url: "https://localhost:8443"
+
+ca_cert: "./certs/ca.crt"
+device_key: "./certs/device.key"
+device_cert: "./certs/device.crt"

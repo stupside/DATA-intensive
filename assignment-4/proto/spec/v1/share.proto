@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package spec.v1;
+
+import "buf/validate/validate.proto";
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "github.com/stupside/DATA-intensive/assignment-4/proto/gen/spec/v1;v1";
+
+message DetailRequest {
+  uint64 id = 1 [(buf.validate.field).uint64.gt = 0];
+}
+message DetailResponse {
+  message File {
+    uint64 size = 1 [(buf.validate.field).uint64.gt = 0];
+    string path = 2 [(buf.validate.field).string.min_len = 1];
+  }
+  repeated File files = 1;
+}
+
+message CreateRequest {
+  message File {
+    uint64 size = 1 [(buf.validate.field).uint64.gt = 0];
+    string path = 2 [(buf.validate.field).string.min_len = 1];
+  }
+  repeated File files = 1 [(buf.validate.field).repeated.min_items = 1];
+}
+message CreateResponse {
+  uint64 id = 1;
+  // share_secret is the secret token used with the share ID to allow access
+  string share_secret = 2;
+}
+
+message ListRequest {}
+message ListResponse {
+  message ShareInfo {
+    uint64 id = 1;
+    uint32 file_count = 2;
+    string share_secret = 3;
+    google.protobuf.Timestamp created_at = 4;
+  }
+  repeated ShareInfo shares = 1;
+}
+
+service ShareService {
+  // ListByDevice returns all shares created by the authenticated device
+  rpc List(ListRequest) returns (ListResponse) {
+    option (google.api.http) = {get: "/api/v1/share/list"};
+  }
+  // Create a new share will create multiple offers
+  rpc Create(CreateRequest) returns (CreateResponse) {
+    option (google.api.http) = {post: "/api/v1/share/create"};
+  }
+  // Detail will provide the detail information of a share
+  rpc Detail(DetailRequest) returns (DetailResponse) {
+    option (google.api.http) = {post: "/api/v1/share/detail"};
+  }
+}

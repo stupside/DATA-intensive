@@ -1,0 +1,32 @@
+server:
+  port: 8443
+  log_level: info  # Options: debug, info, warn, error
+
+tls:
+  server:
+    key_path: "./certs/server.key"
+    cert_path: "./certs/server.crt"
+  ca:
+    key_path: "./certs/ca.key"
+    cert_path: "./certs/ca.crt"
+
+security:
+  cors:
+    allowed_origins:
+      - "*"
+
+database:
+  mongodb:
+    uri: "mongodb://localhost:27017"
+    database: "assignment4"
+  postgresql:
+    dsn: "host=localhost user=admin password=admin dbname=assignment4 port=5432 sslmode=disable TimeZone=UTC"
+    auto_migrate: true
+
+features:
+  relay:
+    chunk_size: 1048576  # 1MB
+  onboarding:
+    certificate_validity: 8760h  # 1 year
+  grpc:
+    enable_reflection: true

@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongo-1:
+    image: mongo:latest
+    container_name: mongo-1
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: datastore
+    # volumes:
+    #   - mongo-data-1:/data/db
+    restart: unless-stopped
+
+  mongo-2:
+    image: mongo:latest
+    container_name: mongo-2
+    ports:
+      - "27018:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: datastore
+    # volumes:
+    #   - mongo-data-2:/data/db
+    restart: unless-stopped
+
+  mongo-3:
+    image: mongo:latest
+    container_name: mongo-3
+    ports:
+      - "27019:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: datastore
+    # volumes:
+    #   - mongo-data-3:/data/db
+    restart: unless-stopped
+
+# volumes:
+#   mongo-data-1:
+#   mongo-data-2:
+#   mongo-data-3:

@@ -11,7 +11,7 @@ require (
 	github.com/mongodb/mongo-tools v0.0.0-20250923000400-61405b8ff290
 	github.com/rs/zerolog v1.34.0
 	github.com/urfave/cli/v2 v2.27.7
-	go.mongodb.org/mongo-driver/v2 v2.3.0
+	go.mongodb.org/mongo-driver/v2 v2.4.2
 )
 
 require (
